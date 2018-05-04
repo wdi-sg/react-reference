@@ -76,23 +76,11 @@
     "compression": "1.7.2",
     "express": "4.16.2",
     "immutable": "3.8.2",
-    "intl": "1.2.5",
-    "material-ui": "0.20.0",
     "prop-types": "15.6.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-hot-loader": "4.0.0",
-    "react-intl": "2.4.0",
-    "react-redux": "5.0.7",
-    "react-router-dom": "4.2.2",
-    "react-router-redux": "4.0.8",
-    "redux": "3.7.2",
-    "redux-actions": "2.3.0",
-    "redux-logger": "3.0.6",
-    "redux-thunk": "2.2.0",
     "request": "2.83.0",
-    "sanitize.css": "5.0.0",
-    "whatwg-fetch": "2.0.3",
-    "winston": "2.4.0"
+    "sanitize.css": "5.0.0"
   }
 }
