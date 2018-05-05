@@ -75,6 +75,7 @@
     "body-parser": "1.18.2",
     "compression": "1.7.2",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-fbjs": "^2.0.1",
     "express": "4.16.2",
     "immutable": "3.8.2",
     "prop-types": "15.6.1",
