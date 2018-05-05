@@ -6,7 +6,7 @@
     "node": true
   },
   "extends": [
-    "fbjs",
+    "airbnb",
     "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",

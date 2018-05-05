@@ -77,7 +77,7 @@
     "eslint-config-airbnb": "^16.1.0",
     "express": "4.16.2",
     "immutable": "3.8.2",
-    "prop-types": "15.6.1",
+    "prop-types": "^15.6.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-hot-loader": "4.0.0",
