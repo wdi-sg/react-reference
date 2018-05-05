@@ -1,16 +1,16 @@
 import React from 'react';
 import {hot} from 'react-hot-loader';
 
-import Counter from './components/counter/counter.jsx'
-import Form from './components/form/form.jsx'
+import Counter from './components/counter/counter.jsx';
+import Form from './components/form/form.jsx';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Form/>
+        <Form />
         Hello World
-        <Counter/>
+        <Counter />
       </div>
     );
   }

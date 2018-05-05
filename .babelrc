@@ -1,12 +1,11 @@
 {
   "presets": [
     [
-      "env",
+      "airbnb",
       {
         "modules": false
       }
     ],
-    "stage-0",
     "react"
   ],
   "retainLines": true,
