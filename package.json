@@ -15,7 +15,7 @@
     "url": "https://github.com/antonfisher/react-express-webpack.git"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node src/server",
+    "dev": "cross-env NODE_ENV=development nodemon src/server",
     "start": "cross-env NODE_ENV=production node build/server",
     "prebuild": "rimraf build",
     "build": "npm run build:client && npm run build:server",
@@ -78,7 +78,7 @@
     "eslint-config-fbjs": "^2.0.1",
     "express": "4.16.2",
     "immutable": "3.8.2",
-    "prop-types": "15.6.1",
+    "prop-types": "^15.6.1",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-hot-loader": "4.0.0",
