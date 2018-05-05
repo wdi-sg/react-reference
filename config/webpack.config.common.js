@@ -19,6 +19,13 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader',
+        options: {
+          emitError: true,
+          emitWarning: true,
+          quiet: false,
+          failOnWarning: false,
+          failOnError: false,
+        }
       },
       {
         test: /\.(js|jsx)$/,
