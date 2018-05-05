@@ -2,7 +2,7 @@ module.exports = {
   get: (request, response) => {
 
     const stuff = {
-      "banana" : "HkjkjhURI",
+      "banana" : "oranges",
       "kiwi":"apple"
     };
 

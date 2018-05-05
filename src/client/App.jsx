@@ -16,7 +16,7 @@ class App extends React.Component {
     return (
       <div>
         <Form />
-        Hello World
+        Welcome.
         <Counter message={this.state.message} />
       </div>
     );

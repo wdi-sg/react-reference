@@ -2,6 +2,7 @@
   "restartable": "rs",
   "ignore": [
     ".git",
+    "src/client",
     "node_modules/**/node_modules"
   ],
   "verbose": true,

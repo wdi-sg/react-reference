@@ -15,7 +15,7 @@
     "url": "https://github.com/antonfisher/react-express-webpack.git"
   },
   "scripts": {
-    "dev": "cross-env NODE_ENV=development node src/server",
+    "dev": "cross-env NODE_ENV=development nodemon src/server",
     "start": "cross-env NODE_ENV=production node build/server",
     "prebuild": "rimraf build",
     "build": "npm run build:client && npm run build:server",
