@@ -40,11 +40,17 @@ Production mode server output:
 
 ## Usage
 
+### Make sure you have nodemon installed globally
+```
+npm install -g nodemon
+```
+
 ### Installation
 ```bash
 git clone git@github.com:antonfisher/react-express-webpack.git
 cd react-express-webpack
 npm install
+
 
 # remove boilerplate git references
 rm ./.git
