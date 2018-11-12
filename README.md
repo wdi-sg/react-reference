@@ -1,42 +1,17 @@
 React boilerplate with ES2015, Express.js, and Webpack
 
-[![Build Status](https://travis-ci.org/antonfisher/react-express-webpack.svg?branch=master)](https://travis-ci.org/antonfisher/react-express-webpack)
-[![bitHound Dependencies](https://www.bithound.io/github/antonfisher/react-express-webpack/badges/dependencies.svg)](https://www.bithound.io/github/antonfisher/react-express-webpack/master/dependencies/npm)
-[![bitHound Overall Score](https://www.bithound.io/github/antonfisher/react-express-webpack/badges/score.svg)](https://www.bithound.io/github/antonfisher/react-express-webpack)
-
 ## Technologies
 
-- React (v16) + Redux (v3) + React Router (v4)
+- React (v16)
 - Express.js (v4) as production and development server
 - Webpack 4 (production and development configurations)
 - SCSS support (+ sanitize.css included)
 - ES2015+
 
 ## Features
-- preconfigured router
-- React Material UI example theme
-- preconfigured modal windows
 - preconfigured eslint and Prettier code formatter
 - React Hot Loader
 - Linux/MacOS/Windows
-
-## Screenshots
-
-Demo UI view:
-
-![Demo view](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew2-ui-screenshot.png)
-
-Development `.js` bundles:
-
-![Development js bundles](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew-stat-dev.png)
-
-Production `.js` bundles:
-
-![Production js bundles](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew-stat-prod.png)
-
-Production mode server output:
-
-![Production js bundles](https://raw.githubusercontent.com/antonfisher/react-express-webpack/docs/images/rew-log-prod.png)
 
 ## Usage
 
