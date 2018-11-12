@@ -8,7 +8,7 @@ class Counter extends React.Component {
   constructor() {
     super();
     this.state = {
-      banana: 'sneakers'
+      banana: 'sneakers',
     };
   }
 
@@ -22,7 +22,7 @@ class Counter extends React.Component {
 }
 
 Counter.propTypes = {
-  message: PropTypes.string.isRequired
+  message: PropTypes.string.isRequired,
 };
 
 export default Counter;

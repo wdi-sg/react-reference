@@ -10,8 +10,8 @@ function onUnhandledError(err) {
   try {
     logger.error(err);
   } catch (e) {
-    console.log('LOGGER ERROR:', e);
-    console.log('APPLICATION ERROR:', err);
+    // console.log('LOGGER ERROR:', e);
+    // console.log('APPLICATION ERROR:', err);
   }
   process.exit(1);
 }

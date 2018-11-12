@@ -6,7 +6,7 @@ class Form extends React.Component {
   constructor() {
     super();
     this.state = {
-      monkey: 'haha'
+      monkey: 'haha',
     };
   }
 
