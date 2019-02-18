@@ -21,7 +21,7 @@ module.exports = {
         loader: 'eslint-loader',
         options: {
           emitWarning: true,
-          quiet: true,
+          quiet: false,
           failOnWarning: false,
           failOnError: false
         }
