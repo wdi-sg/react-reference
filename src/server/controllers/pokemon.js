@@ -12,6 +12,7 @@ module.exports = (db) => {
   let get = (request, response) => {
 
       // use pokemon model method `get` to retrieve pokemon data
+      console.log( db )
 
       db.pokemon.get(request.params.id, (error, pokemon) => {
         // queryResult contains pokemon data returned from the pokemon model
@@ -32,7 +33,7 @@ module.exports = (db) => {
           }else{
 
             // render pokemon view in the pokemon folder
-            response.render('pokemon/pokemon', { pokemon: pokemon });
+            response.render('pokemon/show', { pokemon: pokemon });
 
           }
         }
