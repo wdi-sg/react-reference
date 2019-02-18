@@ -1,12 +1,7 @@
 {
   "presets": [
-    [
-      "airbnb",
-      {
-        "modules": false
-      }
-    ],
-    "react"
+    "@babel/preset-env",
+    "@babel/preset-react"
   ],
   "retainLines": true,
   "plugins": [

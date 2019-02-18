@@ -6,17 +6,14 @@
     "node": true
   },
   "extends": [
-    "prettier",
-    "airbnb",
-    "prettier/react"
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
     "sourceType": "module"
   },
   "plugins": [
-    "prettier",
-    "jsx-a11y",
     "react"
   ],
   "settings": {

@@ -20,9 +20,8 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'eslint-loader',
         options: {
-          emitError: true,
           emitWarning: true,
-          quiet: false,
+          quiet: true,
           failOnWarning: false,
           failOnError: false
         }
