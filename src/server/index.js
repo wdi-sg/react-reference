@@ -1,18 +1,12 @@
 const http = require('http');
 const express = require('express');
 const bodyParser = require('body-parser');
-const logger = require('./logger');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 process.env.PORT = process.env.PORT || 3000;
 
 function onUnhandledError(err) {
-  try {
-    logger.error(err);
-  } catch (e) {
-    // console.log('LOGGER ERROR:', e);
-    // console.log('APPLICATION ERROR:', err);
-  }
+  console.log('ERROR:', err);
   process.exit(1);
 }
 
@@ -25,9 +19,7 @@ const setupAppRoutes =
 const app = express();
 
 app.set('env', process.env.NODE_ENV);
-logger.info(`Application env: ${process.env.NODE_ENV}`);
 
-app.use(logger.expressMiddleware);
 app.use(bodyParser.json());
 
 require('./routes')(app);
@@ -36,5 +28,5 @@ require('./routes')(app);
 setupAppRoutes(app);
 
 http.createServer(app).listen(process.env.PORT, () => {
-  logger.info(`HTTP server is now running on http://localhost:${process.env.PORT}`);
+  //logger.info(`HTTP server is now running on http://localhost:${process.env.PORT}`);
 });
