@@ -22,7 +22,7 @@ npm install -g nodemon
 
 ### Installation
 ```bash
-git clone git@github.com:antonfisher/react-express-webpack.git
+git clone https://github.com/wdi-sg/react-express-webpack.git
 cd react-express-webpack
 npm install
 
