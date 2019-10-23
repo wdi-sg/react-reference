@@ -50,5 +50,11 @@ npm run lint
 HTTP_PORT=3001 npm run dev
 ```
 
+### Deploy
+
+Some operating systems do not copy the server files to the build directory.
+
+See the documentation here: [https://github.com/calvinmetcalf/copyfiles/blob/master/readme.md](https://github.com/calvinmetcalf/copyfiles/blob/master/readme.md)
+
 ## License
 MIT License. Free use and change.
