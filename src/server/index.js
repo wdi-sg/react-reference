@@ -1,22 +1,12 @@
+const {resolve} = require('path');
 const http = require('http');
 const express = require('express');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
-const db = require('./db');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
 process.env.PORT = process.env.PORT || 3000;
-
-function onUnhandledError(err) {
-  console.log('ERROR:', err);
-  process.exit(1);
-}
-
-process.on('unhandledRejection', onUnhandledError);
-process.on('uncaughtException', onUnhandledError);
-
-const setupAppRoutes =
-  process.env.NODE_ENV === 'development' ? require('./middlewares/development') : require('./middlewares/production');
 
 const app = express();
 
@@ -32,16 +22,73 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-// Set react-views to be the default view engine
-const reactEngine = require('express-react-views').createEngine();
-app.set('views', __dirname + '/views');
-app.set('view engine', 'jsx');
-app.engine('jsx', reactEngine);
+/*
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ */
 
-require('./routes')(app, db);
+if( process.env.NODE_ENV === 'development' ){
 
-// application routes (this goes last)
-setupAppRoutes(app);
+  const webpack = require('webpack');
+  const webpackDevMiddleware = require('webpack-dev-middleware');
+  const webpackHotMiddleware = require('webpack-hot-middleware');
+  const webpackConfig = require('../../config/webpack.config.dev');
+
+  const compiler = webpack(webpackConfig);
+
+  app.use(
+    webpackDevMiddleware(compiler, {
+      publicPath: webpackConfig.output.publicPath,
+      stats: {
+        colors: true
+      }
+    })
+  );
+
+  app.use(webpackHotMiddleware(compiler));
+  const clientBuildPath = resolve(__dirname, '..', '..', 'build-dev', 'client')
+
+  // all other requests be handled by UI itself
+}else{
+
+  app.use('/', express.static(clientBuildPath));
+
+  const clientBuildPath = resolve(__dirname, '..', 'client');
+}
+
+/*
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ */
+
+app.get('/banana', (request, response)=>{
+  response.send("ehllo");
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(resolve(clientBuildPath, 'index.html'))
+});
+
+/*
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ * =======================================================================
+ */
+
 
 http.createServer(app).listen(process.env.PORT, () => {
   console.log(`HTTP server is now running on http://localhost:${process.env.PORT}`);
