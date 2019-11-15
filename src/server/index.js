@@ -1,8 +1,5 @@
 const {resolve} = require('path');
-const http = require('http');
 const express = require('express');
-const methodOverride = require('method-override');
-const cookieParser = require('cookie-parser');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -10,27 +7,14 @@ process.env.PORT = process.env.PORT || 3000;
 
 const app = express();
 
-app.set('env', process.env.NODE_ENV);
-
-// Set up middleware
-app.use(methodOverride('_method'));
-app.use(cookieParser());
-
-app.use(express.json());
-
-app.use(express.urlencoded({
-  extended: true
-}));
-
 /*
  * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
+ * ================ REACT config -> depending on env =====================
  * =======================================================================
  */
+
+// set the client build path depending on env
+var clientBuildPath;
 
 if( process.env.NODE_ENV === 'development' ){
 
@@ -41,6 +25,8 @@ if( process.env.NODE_ENV === 'development' ){
 
   const compiler = webpack(webpackConfig);
 
+  app.use(webpackHotMiddleware(compiler));
+
   app.use(
     webpackDevMiddleware(compiler, {
       publicPath: webpackConfig.output.publicPath,
@@ -50,24 +36,19 @@ if( process.env.NODE_ENV === 'development' ){
     })
   );
 
-  app.use(webpackHotMiddleware(compiler));
-  const clientBuildPath = resolve(__dirname, '..', '..', 'build-dev', 'client')
+  clientBuildPath = resolve(__dirname, '..', '..', 'build-dev', 'client')
 
   // all other requests be handled by UI itself
 }else{
 
-  app.use('/', express.static(clientBuildPath));
+  clientBuildPath = resolve(__dirname, '..', 'client');
 
-  const clientBuildPath = resolve(__dirname, '..', 'client');
+  app.use('/', express.static(clientBuildPath));
 }
 
 /*
  * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
+ * ============== normal express routes go here   ========================
  * =======================================================================
  */
 
@@ -75,21 +56,22 @@ app.get('/banana', (request, response)=>{
   response.send("ehllo");
 });
 
+/*
+ * =======================================================================
+ * ==============    catchall react express route ========================
+ * =======================================================================
+ */
+
 app.get('*', (req, res) => {
   res.sendFile(resolve(clientBuildPath, 'index.html'))
 });
 
 /*
  * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
+ * ============                     LISTEN                   =============
  * =======================================================================
  */
 
-
-http.createServer(app).listen(process.env.PORT, () => {
-  console.log(`HTTP server is now running on http://localhost:${process.env.PORT}`);
+app.listen(process.env.PORT, () => {
+  console.log(`ssssserver is now running on http://localhost:${process.env.PORT}`);
 });
