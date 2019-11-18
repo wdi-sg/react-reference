@@ -30,11 +30,11 @@ app.get('/banana', (request, response)=>{
 
 /*
  * =======================================================================
- * ==============    catchall react express route ========================
+ * ==============   react express route           ========================
  * =======================================================================
  */
 
-app.get('*', (req, res) => {
+app.get('/react', (req, res) => {
   res.sendFile(resolve(clientBuildPath, 'index.html'))
 });
 
