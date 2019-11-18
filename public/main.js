@@ -678,15 +678,11 @@ class Counter extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
 
   render() {
     return (
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", { className: styles.desc },
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null,
       this.props.message, " : ", this.state.banana));
 
 
   }}
-
-
-Counter.propTypes = {
-  message: PropTypes.string.isRequired };
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Counter);
@@ -713,7 +709,7 @@ class Form extends react__WEBPACK_IMPORTED_MODULE_0___default.a.Component {
     return (
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null,
       react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, this.state.monkey),
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", { className: styles.name })));
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", null)));
 
 
   }}

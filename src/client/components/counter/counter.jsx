@@ -10,15 +10,11 @@ class Counter extends React.Component {
 
   render() {
     return (
-      <p className={styles.desc}>
+      <p>
         {this.props.message} : {this.state.banana}
       </p>
     );
   }
 }
-
-Counter.propTypes = {
-  message: PropTypes.string.isRequired,
-};
 
 export default Counter;
