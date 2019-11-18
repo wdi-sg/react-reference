@@ -1,7 +1,5 @@
 const {resolve, join} = require('path');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const IS_DEV = process.env.NODE_ENV !== 'production';
 
@@ -31,18 +29,6 @@ module.exports = {
       }
     ]
   },
-  plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].css',
-      disable: IS_DEV
-    }),
-    new HtmlWebpackPlugin({
-      hash: true,
-      inject: true,
-      template: resolve(__dirname, 'src', 'client', 'index.html'),
-    })
-
-  ],
   resolve: {
     modules: ['node_modules', join('src', 'client')],
     extensions: ['.js', '.jsx']
