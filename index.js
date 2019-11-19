@@ -12,10 +12,7 @@ const app = express();
  * =======================================================================
  */
 
-// set the client build path depending on env
-var clientBuildPath = resolve(__dirname, 'public');
-
-app.use('/', express.static(clientBuildPath));
+app.use('/', express.static('public'));
 
 /*
  * =======================================================================
