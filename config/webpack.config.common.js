@@ -15,18 +15,6 @@ module.exports = {
   module: {
     rules: [
       {
-        enforce: 'pre',
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-          quiet: false,
-          failOnWarning: false,
-          failOnError: false
-        }
-      },
-      {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
         exclude: /node_modules/
@@ -78,17 +66,6 @@ module.exports = {
   resolve: {
     modules: ['node_modules', join('src', 'client')],
     extensions: ['.js', '.jsx']
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    }
   },
   stats: {
     assetsSort: '!size',
