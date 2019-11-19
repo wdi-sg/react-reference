@@ -1,8 +1,7 @@
-React boilerplate with Express.js and Webpack
+Boilerplate with Express.js and Webpack
 
 ## Technologies
 
-- React (v16)
 - Express.js (v4) as production and development server
 - Webpack 4 (production and development configurations)
 
