@@ -6,7 +6,7 @@ const IS_DEV = process.env.NODE_ENV !== 'production';
 module.exports = {
   mode: 'production',
   target: 'web',
-  entry: ['./src/client/index.jsx'],
+  entry: ['./src/client/index.js'],
   output: {
     publicPath: '/',
     path: resolve(__dirname, 'public'),
@@ -18,10 +18,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         use: ['babel-loader'],
         exclude: /node_modules/
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader'
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,

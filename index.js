@@ -1,4 +1,3 @@
-const {resolve} = require('path');
 const express = require('express');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -35,7 +34,15 @@ app.get('/banana', (request, response)=>{
  */
 
 app.get('/react', (req, res) => {
-  res.sendFile(resolve(clientBuildPath, 'index.html'))
+  const myHtml = `
+    <html>
+      <body>
+        <h1>Wow, react</h1>
+        <script type="text/javascript" src="/main.js"></script>
+      </body>
+    </html>
+  `;
+  res.send( myHtml );
 });
 
 /*
