@@ -5,48 +5,22 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 process.env.PORT = process.env.PORT || 3000;
 
+const db = require('./db');
+
 const app = express();
 
-/*
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- * =======================================================================
- */
+// Set up middleware
+app.use(express.json());
 
-var clientBuildPath;
+app.use(express.urlencoded({
+  extended: true
+}));
 
-if( process.env.NODE_ENV === 'development' ){
-
-  const webpack = require('webpack');
-  const webpackDevMiddleware = require('webpack-dev-middleware');
-  const webpackHotMiddleware = require('webpack-hot-middleware');
-  const webpackConfig = require('./config/webpack.config.dev');
-
-  const compiler = webpack(webpackConfig);
-
-  app.use(
-    webpackDevMiddleware(compiler, {
-      publicPath: webpackConfig.output.publicPath,
-      stats: {
-        colors: true
-      }
-    })
-  );
-
-  app.use(webpackHotMiddleware(compiler));
-  clientBuildPath = resolve(__dirname, 'build-dev', 'client')
-
-  // all other requests be handled by UI itself
-}else{
-
-  app.use('/', express.static(clientBuildPath));
-
-  clientBuildPath = resolve(__dirname, 'src', 'client');
-}
+// Set react-views to be the default view engine
+const reactEngine = require('express-react-views').createEngine();
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jsx');
+app.engine('jsx', reactEngine);
 
 /*
  * =======================================================================
@@ -58,13 +32,13 @@ if( process.env.NODE_ENV === 'development' ){
  * =======================================================================
  */
 
-app.get('/banana', (request, response)=>{
-  response.send("ehllo");
-});
+const setupAppRoutes =
+  process.env.NODE_ENV === 'development' ? require('./middlewares/development') : require('./middlewares/production');
 
-app.get('/react', (req, res) => {
-  res.sendFile(resolve(clientBuildPath, 'index.html'))
-});
+require('./routes')(app, db);
+
+// application routes (this goes last)
+setupAppRoutes(app);
 
 /*
  * =======================================================================
@@ -75,7 +49,6 @@ app.get('/react', (req, res) => {
  * =======================================================================
  * =======================================================================
  */
-
 
 app.listen(process.env.PORT, () => {
   console.log(`HTTP server is now running on http://localhost:${process.env.PORT}`);

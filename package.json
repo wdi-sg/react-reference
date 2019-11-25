@@ -2,9 +2,6 @@
   "version": "9.9.0",
   "description": "React boilerplate with ES2015, Express.js, and Webpack 3",
   "license": "MIT",
-  "engines": {
-    "node": "11.6.0"
-  },
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon",
     "start": "cross-env NODE_ENV=production node index.js",
@@ -35,13 +32,15 @@
     "webpack": "^4.29.4",
     "webpack-cli": ">=3.2.3",
     "webpack-dev-middleware": ">=3.5.2",
-    "webpack-hot-middleware": ">=2.24.3",
     "webpack-merge": ">=4.2.1"
   },
   "dependencies": {
     "classnames": "^2.2.6",
     "express": ">=4.16.4",
+    "express-react-views": "^0.11.0",
+    "pg": "^7.14.0",
     "react": "^16.8.2",
-    "react-dom": "^16.8.2"
+    "react-dom": "^16.8.2",
+    "webpack-hot-middleware": "^2.25.0"
   }
 }
