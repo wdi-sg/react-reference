@@ -13,7 +13,7 @@
     "build:client": "cross-env NODE_ENV=production webpack -p --progress --config=config/webpack.config.prod.js --mode none"
   },
   "postcss": {},
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.7.0",
@@ -30,9 +30,7 @@
     "webpack-cli": ">=3.2.3",
     "webpack-dev-middleware": ">=3.5.2",
     "webpack-hot-middleware": ">=2.24.3",
-    "webpack-merge": ">=4.2.1"
-  },
-  "dependencies": {
+    "webpack-merge": ">=4.2.1",
     "express": ">=4.16.4",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
