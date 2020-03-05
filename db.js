@@ -35,7 +35,7 @@ if( process.env.DATABASE_URL ){
   configs = {
     user: 'akira',
     host: '127.0.0.1',
-    database: 'testdb',
+    database: 'pokemons',
     port: 5432
   };
 }
